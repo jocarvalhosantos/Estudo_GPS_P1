@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/grantgpsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:padding="14sp"
+        android:text="@string/grantgpsButton" />
+
+    <Button
+        android:id="@+id/enablegpsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        android:padding="14sp"
+        android:text="@string/enablegpsButton" />
+
+    <Button
+        android:id="@+id/disablegpsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        android:padding="14sp"
+        android:text="@string/disablegpsButton" />
+
+    <Button
+        android:id="@+id/startrouteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        android:padding="14sp"
+        android:text="@string/startrouteButton" />
+
+    <Button
+        android:id="@+id/stoprouteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        android:padding="14sp"
+        android:text="@string/stoprouteButton" />
+
+    <EditText
+        android:id="@+id/searchPlainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hintsearchPlainText"
+        />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center_horizontal|fill_horizontal"
+        android:text="@string/searchButton"/>
+
+    <TextView
+        android:id="@+id/travelledDistanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="@string/travelledDistanceTextView"
+        android:textSize="@dimen/travelledDistanceTextView"
+        />
+    <TextView
+        android:id="@+id/travelledDistanceValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:paddingTop="8sp"
+        android:text="0.0"
+        android:textSize="@dimen/travelledDistanceValueTextView"/>
+
+    <TextView
+        android:id="@+id/pastTimeTextTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:text="@string/PastTimeTextTextView"
+        android:textSize="@dimen/PastTimeTextTextView"
+        />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:paddingTop="8sp"
+        android:text=""
+        android:textSize="@dimen/chronometer"
+        />
+
+</GridLayout>

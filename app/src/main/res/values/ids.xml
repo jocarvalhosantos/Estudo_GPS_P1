@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="gps_enabled" type="id">GPS is Enable</item>
+</resources>

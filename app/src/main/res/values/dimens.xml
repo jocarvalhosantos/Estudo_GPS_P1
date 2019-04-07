@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="travelledDistanceTextView">18sp</dimen>
+    <dimen name="travelledDistanceValueTextView">25sp</dimen>
+    <dimen name="PastTimeTextTextView">18sp</dimen>
+    <dimen name="chronometer">25sp</dimen>
+</resources>

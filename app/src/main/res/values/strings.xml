@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Estudo_GPS_P1</string>
+    <string name="grantgpsButton">Grant GPS Permissions</string>
+    <string name="enablegpsButton">Enable GPS</string>
+    <string name="startrouteButton">Start Route</string>
+    <string name="disablegpsButton">Disable GPS</string>
+    <string name="stoprouteButton">Stop Route</string>
+    <string name="hintsearchPlainText">Discover Nearby!</string>
+    <string name="searchButton">Discover!</string>
+    <string name="travelledDistanceTextView">Travelled Distance</string>
+    <string name="PastTimeTextTextView">Past Time</string>
+    <string name="location_not_found">Location Not Found</string>
+    <string name="units">meters</string>
+    <string name="gps_already_granted">GPS permission has already been granted</string>
+    <string name="gps_enabled">GPS is Enable</string>
+    <string name="error_enable_gps">Error to enable GPS</string>
+    <string name="grant_gps_message">Click Grant GPS Permission to Enable GPS</string>
+</resources>
