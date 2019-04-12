@@ -2,10 +2,14 @@ package com.jonas.estudo_gps_p1;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
+import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +23,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -155,6 +161,92 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        disableGPSButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isOn = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                if (isOn){
+                    locationManager.removeUpdates(locationListener);
+                    showMessage(getResources().getString(R.string.gps_turned_off));
+                } else {
+                    showMessage(getResources().getString(R.string.gps_already_off));
+                }
+            }
+        });
+
+        startRouteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(
+                        MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED){
+                    //Se a permissão foi dada, vamos começar o tracking
+                    locAntigo.setLongitude(longAtual);
+                    locAntigo.setLatitude(latAtual);
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    chronometer.start();
+                    showMessage(getResources().getString(R.string.route_started));
+                }
+                else {
+                    showMessage(getResources().getString(R.string.grant_gps_message));
+                }
+
+            }
+        });
+
+        stopRouteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+                    chronometer.stop();
+                    distance = 0;
+                    showMessage(getResources().getString(R.string.route_stopped));
+                }
+                else {
+                    showMessage(getResources().getString(R.string.grant_gps_message));
+                }
+            }
+        });
+
+        discoverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                    Uri uri = Uri.parse(
+                            String.format(Locale.getDefault(),
+                                    "geo:%f,%f?q=" + discoverEditText.getText(),
+                                    latAntigo, longAntigo)
+                    );
+                    Intent intent = new Intent (Intent.ACTION_VIEW, uri);
+                    intent.setPackage("com.google.android.apps.maps");
+                    startActivity(intent);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_PERMISSION_GPS){
+            if (grantResults.length > 0 && grantResults [0] == PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+                    locationManager.requestLocationUpdates(
+                            LocationManager.GPS_PROVIDER,
+                            2000,
+                            5,
+                            locationListener
+                    );
+                }
+            }else {
+                showMessage(getResources().getString(R.string.no_gps_impossible));
+            }
+        }
     }
 
     private void showMessage (String msg){

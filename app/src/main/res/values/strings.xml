@@ -15,4 +15,9 @@
     <string name="gps_enabled">GPS is Enable</string>
     <string name="error_enable_gps">Error to enable GPS</string>
     <string name="grant_gps_message">Click Grant GPS Permission to Enable GPS</string>
+    <string name="gps_turned_off">GPS turned off</string>
+    <string name="gps_already_off">GPS is already off</string>
+    <string name="route_started">Route Started</string>
+    <string name="route_stopped">Route Stopped</string>
+    <string name="no_gps_impossible">Without GPS is Impossible</string>
 </resources>
